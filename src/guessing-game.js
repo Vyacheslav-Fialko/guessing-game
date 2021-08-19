@@ -11,20 +11,16 @@ class GuessingGame {
     }
 
     guess() {
-        return this.res = Math.ceil(this.max - (this.max - this.min)/2);
+        return this.res = Math.ceil(((this.max - this.min)/2) + this.min);
     }
 
     lower() {
-        if (this.res < this.max){
-            return this.max = this.res;
-        }
+        this.setRange(this.min, this.res);
+        
     }
 
     greater() {
-        if (this.res < this.max){
-          return this.min = this.res;
-        }
+        this.setRange(this.res, this.max);
     }
 }
-
 module.exports = GuessingGame;
